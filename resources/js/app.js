@@ -1,7 +1,11 @@
-import './bootstrap';
+import Echo from 'laravel-echo';
+import axios from 'axios';
 
-import Alpine from 'alpinejs';
+window.axios = axios;
 
-window.Alpine = Alpine;
+window.Echo = new Echo({
+    broadcaster: 'reverb',
+    host: window.location.hostname + ':8080',
+});
 
-Alpine.start();
+console.log('Echo loaded');
